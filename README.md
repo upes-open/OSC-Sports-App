@@ -1,7 +1,7 @@
 # Open Summer of Code : Sports App
 > A Platform to connect each and every player of this world.
 
-### Star ⭐ the repository to get started
+### Star ⭐ and Fork the repository to get started
 
 ## Table Of Content
 * [General Information](#general-information)
