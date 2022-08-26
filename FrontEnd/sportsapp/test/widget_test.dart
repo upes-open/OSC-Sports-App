@@ -9,6 +9,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:sportsapp/main.dart';
+import 'dart:ui';
+import 'package:sportsapp/landing.dart';
+import 'package:country_list_pick/country_list_pick.dart';
+import 'package:country_picker/country_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
+
+import 'package:sportsapp/main.dart';
+import 'package:sportsapp/login.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
