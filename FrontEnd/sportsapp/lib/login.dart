@@ -114,6 +114,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
             Container(
                 height: 50,
+                width: 100,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),

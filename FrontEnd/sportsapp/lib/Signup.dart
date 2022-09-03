@@ -189,7 +189,7 @@ class SignupPage extends StatelessWidget {
                                 onPressed: () {})),*/
                       child: Container(
                         height: 50,
-                        width: double.infinity,
+                        width: 200,
                         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(

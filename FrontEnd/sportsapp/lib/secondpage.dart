@@ -32,6 +32,9 @@ class secondpage extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.only(top: 40),
+              width: 200,
+              height: 40,
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: ElevatedButton(
                 child: const Text('SignUp'),
                 onPressed: () {
@@ -39,15 +42,16 @@ class secondpage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => SignupPage()));
                 },
                 style: ElevatedButton.styleFrom(
-                    shadowColor: Colors.blue,
-                    elevation: 50,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    )),
+                  borderRadius: BorderRadius.circular(40),
+                )),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 80),
+              margin: const EdgeInsets.only(top: 20),
+              width: 200,
+              height: 40,
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: ElevatedButton(
                 child: const Text('LogIn'),
                 onPressed: () {
@@ -55,11 +59,9 @@ class secondpage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => MyApp()));
                 },
                 style: ElevatedButton.styleFrom(
-                    shadowColor: Colors.blue,
-                    elevation: 50,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    )),
+                  borderRadius: BorderRadius.circular(40),
+                )),
               ),
             ),
           ],
