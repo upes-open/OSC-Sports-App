@@ -1,13 +1,12 @@
-import 'dart:ui';
-import 'package:sportsapp/landing.dart';
-import 'package:country_list_pick/country_list_pick.dart';
-import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
-
+import 'dart:ui';
 import 'package:sportsapp/main.dart';
+import 'package:flutter/services.dart';
+import 'package:country_picker/country_picker.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:country_list_pick/country_list_pick.dart';
+import 'package:flutter/widgets.dart';
+import 'package:sportsapp/landing.dart';
 import 'package:sportsapp/login.dart';
 
 class SignupPage extends StatelessWidget {
@@ -190,7 +189,7 @@ class SignupPage extends StatelessWidget {
                                 onPressed: () {})),*/
                       child: Container(
                         height: 50,
-                        width: double.infinity,
+                        width: 200,
                         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
