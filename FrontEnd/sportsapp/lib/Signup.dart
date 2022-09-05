@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'package:sportsapp/main.dart';
+import 'package:sportsapp/main.dart' as m;
 import 'package:flutter/services.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
