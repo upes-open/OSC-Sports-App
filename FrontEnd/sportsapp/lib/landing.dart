@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:sportsapp/profile.dart';
 import 'package:sportsapp/screens/ChatPage.dart';
 import 'Login.dart';
 import 'package:sportsapp/main.dart';
@@ -59,7 +59,10 @@ class MyHomePage extends StatelessWidget {
             } else if (index == 1) {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => Homepg()));
-            } else if (index == 2) {}
+            } else if (index == 2) {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Profile()));
+            }
           }),
     );
   }
