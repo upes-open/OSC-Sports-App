@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sportsapp/Login.dart';
 import 'dart:ui';
@@ -51,14 +52,26 @@ class MyApp extends StatelessWidget {
 /// This is the stateful widget that the main application instantiates.
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
+  @override
+  _MyStatefulWidgetState createstate() => _MyStatefulWidgetState();
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  Future signIn() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: nameController.text.trim(),
+          password: passwordController.text.trim());
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +95,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'E-mail',
                 ),
               ),
             ),
@@ -113,54 +126,56 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               height: 20,
             ),
             Container(
-                height: 50,
-                width: 100,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
+              height: 50,
+              width: 100,
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40)),
                 ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                  ),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
-                  },
-                )),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              children: <Widget>[
-                const Text('Does not have account?'),
-                TextButton(
-                  child: const Text(
-                    'Sign in',
-                    style: TextStyle(fontSize: 18, color: Colors.blue),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SignupPage(),
-                      ),
-                    );
-                    //signup screen
-                  },
-                )
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(fontSize: 16),
+                ),
+                onPressed: () {
+                  signIn();
+                },
+              ),
+            )
           ],
         ));
+    // ignore: dead_code
+    Row(
+      children: <Widget>[
+        const SizedBox(
+          height: 20,
+        ),
+        const Text('Does not have account?'),
+        TextButton(
+          child: const Text(
+            'Sign in',
+            style: TextStyle(fontSize: 18, color: Colors.blue),
+          ),
+          onPressed: () {
+            FirebaseAuth.instance.createUserWithEmailAndPassword(
+                email: nameController.text, password: passwordController.text);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SignupPage(),
+              ),
+            );
+            //signup screen
+          },
+        )
+      ],
+      mainAxisAlignment: MainAxisAlignment.center,
+    );
+    ;
   }
 }
-
-/// Signup screen
