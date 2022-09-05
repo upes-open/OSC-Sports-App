@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sportsapp/landing.dart';
 import 'ChatPage.dart';
-
+import 'package:sportsapp/profile.dart';
 import 'package:sportsapp/screens/profilesList.dart';
 import 'package:sportsapp/models/userprofilemodel.dart';
 
@@ -32,6 +32,11 @@ class _HomeState extends State<Homepg> {
         imageURL: "assets/images/user.png",
         sport: "Soccer",
         country: "USA"),
+    userProfile(
+        name: "Charu Gupta",
+        imageURL: "assets/images/user.png",
+        sport: "badminton",
+        country: "Anonymous"),
   ];
   @override
   Widget build(BuildContext context) {
@@ -66,7 +71,13 @@ class _HomeState extends State<Homepg> {
             } else if (index == 1) {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => Homepg()));
-            } else if (index == 2) {}
+            } else if (index == 2) {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Profile(),
+                  ));
+            }
           }),
       appBar: AppBar(
           centerTitle: true,
